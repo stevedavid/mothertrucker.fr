@@ -1,0 +1,11 @@
+.logointro {
+    background-image: url('../img/logo.png');
+    background-position: center center;
+}
+
+.logo_elixir {
+    background-image: url('../img/logo-large.png');
+    background-size: 187px 55px;
+    width: 187px;
+    height: 55px;
+}
