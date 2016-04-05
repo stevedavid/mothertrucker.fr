@@ -12,15 +12,15 @@
             e.preventDefault();
         });
         /*Validation*/
-        $("#contactform").validate({
-            submitHandler: function(form) {
-                $(form).ajaxSubmit();
-                $(form).find('.formSent').show();
-                $(form).find('input[type=text]').val('');
-                $(form).find('input[type=email]').val('');
-                $(form).find('textarea').val('');
-            }
-        });
+        //$("#contactform").validate({
+        //    submitHandler: function(form) {
+        //        $(form).ajaxSubmit();
+        //        $(form).find('.formSent').show();
+        //        $(form).find('input[type=text]').val('');
+        //        $(form).find('input[type=email]').val('');
+        //        $(form).find('textarea').val('');
+        //    }
+        //});
         /*Validation*/
         $("#reservationform").validate({
             submitHandler: function(form) {
@@ -127,7 +127,8 @@
     		slideSpeed: 700,
     		pagination: false,
     		transitionStyle: "fadeUp",
-    		singleItem: true
+    		singleItem: true,
+            mouseDrag: false
     	});
         $('#home-slider').height($(window).height());
         $('.slider-parallax').css('padding-top', $(window).height() + 'px');
@@ -361,7 +362,7 @@ var $optionSets = $('nav.primary ul'),
             var saturation = 100;
             break;
         } //end switch
-        var latlng = new google.maps.LatLng($('#maps').data('lat'), $('#maps').data('lon')); <!-- (Fist Value Longitude, Second Value Latitude), can obtain YOUR coordenates here!: http://universimmedia.pagesperso-orange.fr/geo/loc.htm -->
+        var latlng = new google.maps.LatLng($('#maps').data('lat'), $('#maps').data('lon'));
         var styles = [
             {
                 "featureType": "landscape",

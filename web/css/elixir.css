@@ -676,6 +676,7 @@ a:hover {text-decoration: none;}
 		height: 275px;
 		background:url("../images/logo_intro.png");
 		background-repeat: no-repeat;
+		backgorund-size: cover;
 		margin:-1px auto;
 		margin-bottom: 10px;
 		content: " ";
