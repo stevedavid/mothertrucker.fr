@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 class AjaxController extends Controller
 {
     const CONTACT_MAIL_SUBJECT = 'Un nouveau message sur mothertrucker.fr';
+    const CONTACT_MAIL_TO = 'wassup@mothertrucker.fr';
 
     /**
      * @Route("/ajax/contact", name="ajax_contact")
@@ -38,22 +39,30 @@ class AjaxController extends Controller
                 return new JsonResponse($errors, 412);
             }
 
-            $email = $this
-                ->getDoctrine()
-                ->getManager()
-                ->getRepository('AppBundle:Meta')
-                ->findOneByName('contact_email');
+//            $email = $this
+//                ->getDoctrine()
+//                ->getManager()
+//                ->getRepository('AppBundle:Meta')
+//                ->findOneByName('contact_email');
 
-            $message = \Swift_Message::newInstance()
-                ->setTo($email->getValue())
+            $email = \Swift_Message::newInstance(null);
+            $transport = \Swift_MailTransport::newInstance();
+            $mailer = \Swift_Mailer::newInstance($transport);
+
+            $email
+                ->setTo(self::CONTACT_MAIL_TO)
                 ->setSubject(self::CONTACT_MAIL_SUBJECT)
                 ->setFrom([$message['email'] => $message['name']])
                 ->setBody($message['message'], 'text/plain')
             ;
 
-//            $this->get('mailer')->send($message);
+            $sent = $mailer->send($email);
 
-            return new JsonResponse(['sent' => true]);
+            if($sent) {
+                return new JsonResponse(['sent' => true]);
+            }
+
+            return new JsonResponse(['sent' => false], 500);
         }
 
         return new Response(null, 405);
