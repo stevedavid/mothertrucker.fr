@@ -31,3 +31,7 @@
 .bluegray .reservations_logo {
     background-image: url('../images/color/reservations_logo_bluegray.png');
 }
+
+section.timetable {
+    background-image: url('../img/owners_blur.jpg');
+}
