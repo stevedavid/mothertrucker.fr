@@ -36,3 +36,9 @@
 section.timetable {
     background-image: url('../img/owners_blur.jpg');
 }
+
+.testimonials_img {
+    background-image: url('../img/short_logo.png');
+    background-size: 150px 110px;
+    width: 150px;
+}
