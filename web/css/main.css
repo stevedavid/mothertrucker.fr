@@ -42,3 +42,12 @@ section.timetable {
     background-size: 150px 110px;
     width: 150px;
 }
+
+.reservation-email {
+    text-align: center;
+}
+
+label {
+    /*font-weight: normal;*/
+    border-bottom: 1px dashed #c5c5c5;
+}

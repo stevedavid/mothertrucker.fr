@@ -49,18 +49,11 @@
 </header>
 <!-- END HEADER -->
 
-
-
-
 <!-- BEGIN HOME SLIDER SECTION -->
 <section id="home-slider">
     {{ render(controller('AppBundle:Front:home')) }}
 </section>
 <!-- END HOME SLIDER SECTION -->
-
-
-
-
 
 <!-- BEGIN ABOUT SECTION -->
 <section id="about" class="section about">
@@ -105,10 +98,6 @@
 </section>
 <!-- END CONTACT SECTION -->
 
-
-
-
-
 <!-- BEGIN MAP SECTION -->
 <section id="maps" data-lat="43.642849" data-long="3.844310">
     <script type="text/javascript" src="{{ asset('http://maps.google.com/maps/api/js?sensor=false') }}"></script>
@@ -117,9 +106,6 @@
     </div>
 </section>
 <!-- END MAP SECTION -->
-
-
-
 
 <!-- BEGIN FOOTER -->
 <footer id="footer" class="section" role="contentinfo">
@@ -142,12 +128,17 @@
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/default.js') }}"></script>
 <script src="{{ asset('js/plugins.js') }}"></script>
+<script src="{{ asset('js/material.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.isotope.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.prettyPhoto.js') }}"></script>
 <script src="{{ asset('js/jquery.swipebox.js') }}"></script>
 
 <script type="text/javascript">
     ;(function($) {
+
+        $('[rel=tooltip]').tooltip({
+            placement: 'top'
+        });
 
         $('.swipebox').swipebox();
 
