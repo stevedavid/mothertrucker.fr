@@ -34,6 +34,11 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        adresse: "%adresse%"
+        latitude: "%latitude%"
+        longitude: "%longitude%"
+        telephone: "%telephone%"
 
 # Doctrine Configuration
 doctrine:
