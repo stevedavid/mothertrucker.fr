@@ -88,7 +88,7 @@
 
 	$(window).load(function() {
         //Set Google maps
-        if ($('#maps').length>0) {wpgmappity_maps_loaded();}
+        //if ($('#maps').length>0) {wpgmappity_maps_loaded();}
 
         // Set video player buttons behaviour
         $(".player").each(function () {
@@ -124,7 +124,7 @@
     		goToFirst: true,
     		goToFirstSpeed: 2000,
     		navigation: false,
-    		slideSpeed: 700,
+    		slideSpeed: 100,
     		pagination: false,
     		transitionStyle: "fadeUp",
     		singleItem: true,
@@ -314,138 +314,139 @@ var $optionSets = $('nav.primary ul'),
         $('.slider-parallax').css('padding-top', $(window).height() + 'px');
     });
 
-    function wpgmappity_maps_loaded() {
-        /* googleMaps Footer Map */
-        var bluegray = "#768FAC"
-        var black = "#999996"
-        var green = "#77be32"
-        var yellow = "#f1d301"
-        var orange = "#fda527"
-        var purple = "#d786fe"
-        var red = "#f2333a"
-        var turquoise = "#29deb5"
-
-        var color = bluegray; // set your map color here! (blue, black, green, yellow, purple, orange...)
-        var saturation = 100;
-        var pointerUrl = 'images/map/pointer.png'; // set your color pointer here! (pointer-blue/green/yellow/fucsia/purple/turquoise/red/orange.png)
-        switch(color) {
-            case ('bluegray'):
-            var color = bluegray;
-            var saturation = 100;
-            break;
-        case ('black'):
-            var color = black;
-            var saturation = 100;
-            break;
-        case ('green'):
-            var color = green;
-            var saturation = 100;
-            break;
-        case ('yellow'):
-            var color = yellow;
-            var saturation = 100;
-            break;
-        case ('red'):
-            var color = red;
-            var saturation = 100;
-            break;
-        case ('turquoise'):
-            var color = turquoise;
-            var saturation = 100;
-            break;
-        case ('orange'):
-            var color = orange;
-            var saturation = 100;
-            break;
-        case ('purple'):
-            var color = purple;
-            var saturation = 100;
-            break;
-        } //end switch
-        var latlng = new google.maps.LatLng($('#maps').data('lat'), $('#maps').data('lon'));
-        var styles = [
-            {
-                "featureType": "landscape",
-                "stylers": [
-                    {"hue": "#000"},
-                    {"saturation": -100},
-                    {"lightness": 40},
-                    {"gamma": 1}
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "stylers": [
-                    {"hue": color},
-                    {"saturation": saturation},
-                    {"lightness": 20},
-                    {"gamma": 1}
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "stylers": [
-                    {"hue": color},
-                    {"saturation": saturation},
-                    {"lightness": 20},
-                    {"gamma": 1}
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "stylers": [
-                    {"hue": color},
-                    {"saturation": saturation},
-                    {"lightness": 50},
-                    {"gamma": 1}
-                ]
-            },
-            {
-                "featureType": "water",
-                "stylers": [
-                    {"hue": "#000"},
-                    {"saturation": -100},
-                    {"lightness": 15},
-                    {"gamma": 1}
-                ]
-            },
-            {
-                "featureType": "poi",
-                "stylers": [
-                    {"hue": "#000"},
-                    {"saturation": -100},
-                    {"lightness": 25},
-                    {"gamma": 1}
-                ]
-            }
-        ];
-        var drag;
-        if($(window).width()<796){drag=false;}else{drag=true;}
-        var options = {
-            center : latlng,
-            mapTypeId: google.maps.MapTypeId.SATELLITE,
-            zoomControl : false,
-            mapTypeControl : false,
-            scaleControl : false,
-            streetViewControl : false,
-            draggable:drag,
-            scrollwheel:false,
-            panControl : false, zoom : 18,
-            styles: styles
-        };
-        var wpgmappitymap = new google.maps.Map(document.getElementById('wpgmappitymap'), options);
-        var point0 = new google.maps.LatLng($('#maps').data('lat'),$('#maps').data('lon'));
-        var marker0 = new google.maps.Marker({
-            position : point0,
-            map : wpgmappitymap,
-            icon: pointerUrl //Custom Pointer URL
-        });
-        google.maps.event.addListener( marker0, 'click',
-            function() {
-                var infowindow = new google.maps.InfoWindow({content: 'Text'});
-                infowindow.open(wpgmappitymap,marker0);
-        });
-    } // end wpgmappity_maps_loaded();
+    //function wpgmappity_maps_loaded() {
+    //    /* googleMaps Footer Map */
+    //    var bluegray = "#768FAC"
+    //    var black = "#999996"
+    //    var green = "#77be32"
+    //    var yellow = "#f1d301"
+    //    var orange = "#fda527"
+    //    var purple = "#d786fe"
+    //    var red = "#f2333a"
+    //    var turquoise = "#29deb5"
+    //
+    //    var color = 'bluegray'; // set your map color here! (blue, black, green, yellow, purple, orange...)
+    //    var saturation = 100;
+    //    var pointerUrl = 'images/map/pointer.png'; // set your color pointer here! (pointer-blue/green/yellow/fucsia/purple/turquoise/red/orange.png)
+    //    switch(color) {
+    //        case ('bluegray'):
+    //        var color = bluegray;
+    //        var saturation = 100;
+    //        break;
+    //    case ('black'):
+    //        var color = black;
+    //        var saturation = 100;
+    //        break;
+    //    case ('green'):
+    //        var color = green;
+    //        var saturation = 100;
+    //        break;
+    //    case ('yellow'):
+    //        var color = yellow;
+    //        var saturation = 100;
+    //        break;
+    //    case ('red'):
+    //        var color = red;
+    //        var saturation = 100;
+    //        break;
+    //    case ('turquoise'):
+    //        var color = turquoise;
+    //        var saturation = 100;
+    //        break;
+    //    case ('orange'):
+    //        var color = orange;
+    //        var saturation = 100;
+    //        break;
+    //    case ('purple'):
+    //        var color = purple;
+    //        var saturation = 100;
+    //        break;
+    //    } //end switch
+    //    var latlng = new google.maps.LatLng($('#maps').data('lat'), $('#maps').data('lon'));
+    //    var styles = [
+    //        {
+    //            "featureType": "landscape",
+    //            "stylers": [
+    //                {"hue": "#000"},
+    //                {"saturation": -100},
+    //                {"lightness": 40},
+    //                {"gamma": 1}
+    //            ]
+    //        },
+    //        {
+    //            "featureType": "road.highway",
+    //            "stylers": [
+    //                {"hue": color},
+    //                {"saturation": saturation},
+    //                {"lightness": 20},
+    //                {"gamma": 1}
+    //            ]
+    //        },
+    //        {
+    //            "featureType": "road.arterial",
+    //            "stylers": [
+    //                {"hue": color},
+    //                {"saturation": saturation},
+    //                {"lightness": 20},
+    //                {"gamma": 1}
+    //            ]
+    //        },
+    //        {
+    //            "featureType": "road.local",
+    //            "stylers": [
+    //                {"hue": color},
+    //                {"saturation": saturation},
+    //                {"lightness": 50},
+    //                {"gamma": 1}
+    //            ]
+    //        },
+    //        {
+    //            "featureType": "water",
+    //            "stylers": [
+    //                {"hue": "#000"},
+    //                {"saturation": -100},
+    //                {"lightness": 15},
+    //                {"gamma": 1}
+    //            ]
+    //        },
+    //        {
+    //            "featureType": "poi",
+    //            "stylers": [
+    //                {"hue": "#000"},
+    //                {"saturation": -100},
+    //                {"lightness": 25},
+    //                {"gamma": 1}
+    //            ]
+    //        }
+    //    ];
+    //    var drag;
+    //    if($(window).width()<796){drag=false;}else{drag=true;}
+    //    var options = {
+    //        center : latlng,
+    //        mapTypeId: google.maps.MapTypeId.SATELLITE,
+    //        zoomControl : false,
+    //        mapTypeControl : false,
+    //        scaleControl : false,
+    //        streetViewControl : false,
+    //        draggable:drag,
+    //        scrollwheel:false,
+    //        panControl : false,
+    //        zoom : 18,
+    //        styles: styles
+    //    };
+    //    var wpgmappitymap = new google.maps.Map(document.getElementById('wpgmappitymap'), options);
+    //    var point0 = new google.maps.LatLng($('#maps').data('lat'),$('#maps').data('lon'));
+    //    var marker0 = new google.maps.Marker({
+    //        position : point0,
+    //        map : wpgmappitymap,
+    //        icon: pointerUrl //Custom Pointer URL
+    //    });
+    //    google.maps.event.addListener( marker0, 'click',
+    //        function() {
+    //            var infowindow = new google.maps.InfoWindow({content: 'Text'});
+    //            infowindow.open(wpgmappitymap,marker0);
+    //    });
+    //} // end wpgmappity_maps_loaded();
 
 
     /* Parallax */

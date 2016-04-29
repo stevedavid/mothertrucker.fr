@@ -1,3 +1,6 @@
+
+
+
 .bluegray .logointro {
     background-image: url('../img/logo.png');
     background-position: center center;
@@ -34,7 +37,7 @@
 }
 
 section.timetable {
-    background-image: url('../img/owners_blur.jpg');
+    background-image: url('../img/timetable_blur.jpg');
 }
 
 .testimonials_img {
@@ -50,4 +53,20 @@ section.timetable {
 label {
     /*font-weight: normal;*/
     border-bottom: 1px dashed #c5c5c5;
+}
+
+.appear-992 {
+    display: none !important;
+}
+
+@media only screen and (max-width: 568px) {
+    .bluegray .logointro {
+        height: 270px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #about .appear-992 {
+        display: inline-block;
+    }
 }

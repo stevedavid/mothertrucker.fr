@@ -29,7 +29,7 @@ $(document).ready(function(){
  
     
 	
-	var currentColor = 'gold';
+	var currentColor = 'bluegray';
 	$('body').addClass(currentColor);
 
 	$('.picker-bluegray').click(function(){
@@ -109,7 +109,7 @@ $(document).ready(function(){
 		var orange = "#fda527"
 		var red = "#EE2C46"
 
-		var color = gold // set your map color here! (blue, black, green, yellow, purple, orange...)
+		var color = 'bluegray' // set your map color here! (blue, black, green, yellow, purple, orange...)
 		var saturation = 100
 		function wpgmappity_maps_loaded() {
 			var pointerUrl = 'images/map/pointer-'+currentColor+'.png' // set your color pointer here! (pointer-blue/green/yellow/fucsia/purple/turquoise/red/orange.png)
@@ -147,7 +147,7 @@ $(document).ready(function(){
 				var saturation = 100;
                 break;
         }	
-		var latlng = new google.maps.LatLng(40.712503557180824,-74.00073790361023); <!-- (Fist Value Longitude, Second Value Latitude), can obtain YOUR coordenates here!: http://universimmedia.pagesperso-orange.fr/geo/loc.htm -->
+		var latlng = new google.maps.LatLng($('#maps').data('lat'), $('#maps').data('long'));
 		var styles = [
 			{
 				"featureType": "landscape",
@@ -213,11 +213,11 @@ $(document).ready(function(){
 		 streetViewControl : false,
 		 draggable:drag,
 		 scrollwheel:false,
-		 panControl : false, zoom : 17,
+		 panControl : false, zoom : 12,
 		 styles: styles
 		};
 		var wpgmappitymap = new google.maps.Map(document.getElementById('wpgmappitymap'), options);
-		var point0 = new google.maps.LatLng(40.712503557180824,-74.00073790361023); <!-- (Fist Value Longitude, Second Value Latitude), can obtain YOUR coordenates here!: http://universimmedia.pagesperso-orange.fr/geo/loc.htm -->
+		var point0 = new google.maps.LatLng($('#maps').data('lat'), $('#maps').data('long'));
 		var marker0= new google.maps.Marker({
 		 position : point0,
 		 map : wpgmappitymap,
@@ -226,7 +226,7 @@ $(document).ready(function(){
 		google.maps.event.addListener(marker0,'click',
 		 function() {
 		 var infowindow = new google.maps.InfoWindow(
-		 {content: 'undefined'});
+		 {content: '<center>' + $('#maps').data('adresse').replace(new RegExp(', ', 'g'), '<br/>') + '</center>'});
 		 infowindow.open(wpgmappitymap,marker0);
 		 });
 		}
