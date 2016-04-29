@@ -59,9 +59,23 @@ label {
     display: none !important;
 }
 
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: 597px) {
     .bluegray .logointro {
         height: 270px;
+        margin-top: 120px;
+    }
+
+    section.menu span {
+        font-size: 14px;
+    }
+
+    .timetable-decorator,
+    .timetable-decorator2 {
+        display: none;
+    }
+
+    span.above {
+        line-height: 30px;
     }
 }
 
@@ -69,4 +83,37 @@ label {
     #about .appear-992 {
         display: inline-block;
     }
+
+    button.contact.button {
+        min-width: 100%;
+    }
 }
+
+@media only screen and (min-width: 597px) and (max-width: 847px) {
+    .timetable-decorator,
+    .timetable-decorator2 {
+        width: 75px;
+        background-size: 75px !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+    }
+}
+
+@media only screen and (max-width: 378px) {
+    section.timetable h2 {
+        line-height: normal;
+        margin-bottom: 100px;
+    }
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    section.menu span {
+        font-size: 18px;
+    }
+
+    button.contact.button {
+        font-size: 24px;
+    }
+}
+
